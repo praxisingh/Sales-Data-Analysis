@@ -1,0 +1,11 @@
+# Group by ITEM TYPE and calculate total sales
+item_type_sales = data.groupby('ITEM TYPE')['RETAIL SALES'].sum().sort_values(ascending=False)
+
+# Group by SUPPLIER and calculate total sales
+supplier_sales = data.groupby('SUPPLIER')['RETAIL SALES'].sum().sort_values(ascending=False)
+
+print("Top Item Types by Revenue:")
+print(item_type_sales)
+
+print("\nTop Suppliers by Revenue:")
+print(supplier_sales)
