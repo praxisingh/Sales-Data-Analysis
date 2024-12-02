@@ -1,1 +1,16 @@
+# Extract Retail Sales Data
+sales = data['RETAIL SALES']
 
+# Aggregate sales data by month if necessary
+monthly_sales = sales.resample('M').sum()
+
+# ARIMA Model for Forecasting
+from statsmodels.tsa.arima.model import ARIMA
+
+# Train ARIMA model
+model = ARIMA(monthly_sales, order=(1, 1, 1))
+model_fit = model.fit()
+
+# Forecast for the next 12 months
+forecast = model_fit.forecast(steps=12)
+print(forecast)
