@@ -1,0 +1,9 @@
+# Aggregate sales by month to identify seasonal trends
+monthly_sales = data['RETAIL SALES'].resample('M').sum()
+
+# Plot seasonal trends
+monthly_sales.plot(figsize=(10, 6))
+plt.title('Seasonal Trend in Retail Sales')
+plt.ylabel('Retail Sales')
+plt.xlabel('Date')
+plt.show()
