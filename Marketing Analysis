@@ -1,0 +1,15 @@
+# Compare Retail Sales with Retail Transfers and Warehouse Sales
+data['Total Sales'] = data['RETAIL SALES'] + data['RETAIL TRANSFERS'] + data['WAREHOUSE SALES']
+
+# Calculate the percentage contribution of each channel
+data['Retail Sales %'] = (data['RETAIL SALES'] / data['Total Sales']) * 100
+data['Retail Transfers %'] = (data['RETAIL TRANSFERS'] / data['Total Sales']) * 100
+data['Warehouse Sales %'] = (data['WAREHOUSE SALES'] / data['Total Sales']) * 100
+
+# Visualize the contributions
+import matplotlib.pyplot as plt
+
+data[['Retail Sales %', 'Retail Transfers %', 'Warehouse Sales %']].plot(kind='line', figsize=(10, 6))
+plt.title('Sales Channel Contribution Over Time')
+plt.ylabel('Percentage Contribution')
+plt.show()
